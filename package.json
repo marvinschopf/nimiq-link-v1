@@ -12,7 +12,7 @@
 		"frontend"
 	],
 	"scripts": {
-		"frontend": "yarn workspace frontend",
+		"frontend": "yarn workspace nimiq-link-frontend",
 		"prettier": "prettier --write **/* *"
 	},
 	"devDependencies": {
