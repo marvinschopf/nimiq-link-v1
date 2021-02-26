@@ -44,7 +44,7 @@ export default class App extends Component<AppProps, AppState> {
 										<input
 											id="targetUrlInput"
 											className="nq-input"
-											placeholder=""
+											placeholder="URL to shorten"
 											value={this.state.targetUrl}
 											style={{ width: "100%" }}
 											onChange={(event: any) => {
@@ -63,7 +63,7 @@ export default class App extends Component<AppProps, AppState> {
 										<input
 											id="walletInput"
 											className="nq-input"
-											placeholder=""
+											placeholder="NIM wallet address"
 											value={this.state.wallet}
 											style={{ width: "100%" }}
 											onChange={(event: any) => {
