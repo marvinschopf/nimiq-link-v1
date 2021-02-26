@@ -7,7 +7,7 @@
     "url": "https://www.marvinschopf.com"
   },
   "funding": "https://sponsor.marvinschopf.com/nimiq-link",
-  "installConfig": {
-    "pnp": true
+  "scripts": {
+    "start": "yarn node src/index.ts"
   }
 }
