@@ -2,6 +2,7 @@ import alias from "@rollup/plugin-alias"
 import typescript from "@rollup/plugin-typescript"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
 import html from "@rollup/plugin-html"
+import copy from "rollup-plugin-copy-assets"
 import Handlebars from "handlebars"
 
 import { readFileSync } from "fs"
@@ -40,6 +41,9 @@ module.exports = {
 					title: title,
 				})
 			},
+		}),
+		copy({
+			assets: ["src/assets/", "assets/"],
 		}),
 	],
 }
