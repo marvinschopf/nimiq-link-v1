@@ -4,6 +4,12 @@
 __metadata:
   version: 4
 
+"nimiq-link-frontend@workspace:frontend":
+  version: 0.0.0-use.local
+  resolution: "nimiq-link-frontend@workspace:frontend"
+  languageName: unknown
+  linkType: soft
+
 "nimiq-link@workspace:.":
   version: 0.0.0-use.local
   resolution: "nimiq-link@workspace:."
