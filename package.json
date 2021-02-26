@@ -1,14 +1,28 @@
 {
-  "name": "nimiq-link",
-  "license": "AGPL-3.0-or-later",
-  "private": true,
-  "author": {
-    "name": "Marvin Schopf",
-    "email": "marvin@schopf.biz",
-    "url": "https://www.marvinschopf.com"
-  },
-  "funding": "https://sponsor.marvinschopf.com/nimiq-link",
-  "workspaces": [
-    "frontend"
-  ]
+	"name": "nimiq-link",
+	"license": "AGPL-3.0-or-later",
+	"private": true,
+	"author": {
+		"name": "Marvin Schopf",
+		"email": "marvin@schopf.biz",
+		"url": "https://www.marvinschopf.com"
+	},
+	"funding": "https://sponsor.marvinschopf.com/nimiq-link",
+	"workspaces": [
+		"frontend"
+	],
+	"scripts": {
+		"frontend": "yarn workspace frontend",
+		"prettier": "prettier --write **/* *"
+	},
+	"devDependencies": {
+		"@types/node": "^14.14.31",
+		"prettier": "^2.2.1",
+		"typescript": "3.9.9"
+	},
+	"prettier": {
+		"useTabs": true,
+		"tabWidth": 4,
+		"semi": false
+	}
 }

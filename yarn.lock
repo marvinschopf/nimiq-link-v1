@@ -3,6 +3,14 @@
 
 __metadata:
   version: 4
+  cacheKey: 7
+
+"@types/node@npm:^14.14.31":
+  version: 14.14.31
+  resolution: "@types/node@npm:14.14.31"
+  checksum: 635dc8a0898a923621e02ca179e17baa39fdfa44f0096fcc1b7046c9b32317e74a99956a7b45ca0e8069874f51f4e7873a418239a318a4b6e7936f6510ac5992
+  languageName: node
+  linkType: hard
 
 "nimiq-link-frontend@workspace:frontend":
   version: 0.0.0-use.local
@@ -13,5 +21,38 @@ __metadata:
 "nimiq-link@workspace:.":
   version: 0.0.0-use.local
   resolution: "nimiq-link@workspace:."
+  dependencies:
+    "@types/node": ^14.14.31
+    prettier: ^2.2.1
+    typescript: 3.9.9
   languageName: unknown
   linkType: soft
+
+"prettier@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "prettier@npm:2.2.1"
+  bin:
+    prettier: bin-prettier.js
+  checksum: 92c6c9f4b87eba1f28466edee57dd18c80d00b858edda77d46d1950d20e6e302b68ee255fc91133ba931e63c4577b5ae30da194d9626a8f3c0177778b91bf056
+  languageName: node
+  linkType: hard
+
+typescript@3.9.9:
+  version: 3.9.9
+  resolution: "typescript@npm:3.9.9"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 22bbe953faa34903587f3bd8fb6c343d754745d4177e49da523a2a3b814fe5eaf60d9b23c2d401d038a08a5ac2d8094b268ba75adee840cc2358fb5a866624ab
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@3.9.9#builtin<compat/typescript>":
+  version: 3.9.9
+  resolution: "typescript@patch:typescript@npm%3A3.9.9#builtin<compat/typescript>::version=3.9.9&hash=cc6730"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: a57cc051e94bd7f6344165a3318fa27d094c1a59822e6028aaa7c07628d5765dc0a850f2d92db32b988331a1abe51593bf1d217798b710ee3a1ff4b995888fd2
+  languageName: node
+  linkType: hard
