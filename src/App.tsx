@@ -35,34 +35,41 @@ export default class App extends Component<AppProps, AppState> {
 						</div>
 						<div className="nq-card-body">
 							<form onSubmit={this.handleSubmit}>
-								<label for="targetUrlInput">
-									URL to shorten:
-								</label>
-								<input
-									id="targetUrlInput"
-									className="nq-input"
-									placeholder=""
-									value={this.state.targetUrl}
-									onChange={(event: any) => {
-										this.setState({
-											targetUrl: event.target.value,
-										})
-									}}
-								/>
-								<label for="walletInput">
-									NIM wallet address:
-								</label>
-								<input
-									id="walletInput"
-									className="nq-input"
-									placeholder=""
-									value={this.state.wallet}
-									onChange={(event: any) => {
-										this.setState({
-											wallet: event.target.value,
-										})
-									}}
-								/>
+								<div className="grid50">
+									<div className="grid50-element">
+										<label for="targetUrlInput">
+											URL to shorten:
+										</label>
+										<input
+											id="targetUrlInput"
+											className="nq-input"
+											placeholder=""
+											value={this.state.targetUrl}
+											onChange={(event: any) => {
+												this.setState({
+													targetUrl:
+														event.target.value,
+												})
+											}}
+										/>
+									</div>
+									<div className="grid50-element">
+										<label for="walletInput">
+											NIM wallet address:
+										</label>
+										<input
+											id="walletInput"
+											className="nq-input"
+											placeholder=""
+											value={this.state.wallet}
+											onChange={(event: any) => {
+												this.setState({
+													wallet: event.target.value,
+												})
+											}}
+										/>
+									</div>
+								</div>
 							</form>
 						</div>
 					</div>
