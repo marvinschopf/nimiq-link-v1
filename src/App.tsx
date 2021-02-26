@@ -1,7 +1,24 @@
 import { Component, Fragment, h } from "preact"
 import Nimiq from "@nimiq/core-web"
 
-export default class App extends Component {
+type AppProps = {}
+
+type AppState = {
+	targetUrl: string
+	wallet: string
+}
+
+export default class App extends Component<AppProps, AppState> {
+	constructor(props: AppProps) {
+		super(props)
+		this.state = {
+			targetUrl: "",
+			wallet: "",
+		}
+	}
+
+	handleSubmit(event: Event) {}
+
 	render() {
 		return (
 			<Fragment>
@@ -16,7 +33,38 @@ export default class App extends Component {
 						<div className="nq-card-header">
 							<h1 className="nq-h1">Create shortlink</h1>
 						</div>
-						<div className="nq-card-body"></div>
+						<div className="nq-card-body">
+							<form onSubmit={this.handleSubmit}>
+								<label for="targetUrlInput">
+									URL to shorten:
+								</label>
+								<input
+									id="targetUrlInput"
+									className="nq-input"
+									placeholder=""
+									value={this.state.targetUrl}
+									onChange={(event: any) => {
+										this.setState({
+											targetUrl: event.target.value,
+										})
+									}}
+								/>
+								<label for="walletInput">
+									NIM wallet address:
+								</label>
+								<input
+									id="walletInput"
+									className="nq-input"
+									placeholder=""
+									value={this.state.wallet}
+									onChange={(event: any) => {
+										this.setState({
+											wallet: event.target.value,
+										})
+									}}
+								/>
+							</form>
+						</div>
 					</div>
 				</main>
 			</Fragment>
