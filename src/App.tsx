@@ -40,11 +40,13 @@ export default class App extends Component<AppProps, AppState> {
 										<label for="targetUrlInput">
 											URL to shorten:
 										</label>
+										<br />
 										<input
 											id="targetUrlInput"
 											className="nq-input"
 											placeholder=""
 											value={this.state.targetUrl}
+											style={{ width: "100%" }}
 											onChange={(event: any) => {
 												this.setState({
 													targetUrl:
@@ -57,11 +59,13 @@ export default class App extends Component<AppProps, AppState> {
 										<label for="walletInput">
 											NIM wallet address:
 										</label>
+										<br />
 										<input
 											id="walletInput"
 											className="nq-input"
 											placeholder=""
 											value={this.state.wallet}
+											style={{ width: "100%" }}
 											onChange={(event: any) => {
 												this.setState({
 													wallet: event.target.value,
