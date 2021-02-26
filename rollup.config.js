@@ -2,6 +2,9 @@ import alias from "@rollup/plugin-alias"
 import typescript from "@rollup/plugin-typescript"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
 import html from "@rollup/plugin-html"
+import Handlebars from "handlebars"
+
+import { readFileSync } from "fs"
 
 module.exports = {
 	input: "src/index.tsx",
@@ -25,16 +28,18 @@ module.exports = {
 		}),
 		html({
 			fileName: "index.html",
-			meta: [
-				{
-					charset: "utf-8",
-				},
-				{
-					name: "viewport",
-					content: "width=device-width,initial-scale=1.0",
-				},
-			],
-			title: "NIMIQ.link",
+			template: ({ attributes, bundle, files, publicPath, title }) => {
+				const template = Handlebars.compile(
+					readFileSync("template.handlebars").toString()
+				)
+				return template({
+					files: files,
+					bundle: bundle,
+					attributes: attributes,
+					publicPath: publicPath,
+					title: title,
+				})
+			},
 		}),
 	],
 }

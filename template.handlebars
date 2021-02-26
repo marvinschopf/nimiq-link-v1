@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            NIMIQ.link
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@nimiq/style@0.8.3/nimiq-style.min.css" integrity="sha256-h5mrZlK4CJC7cVSPs22nzXXGpMCJ3thBGsmBnbZFFwY=" crossorigin="anonymous">
+    </head>
+    <body>
+        {{#each bundle}}
+            {{#if this.isEntry}}
+                <script src="{{this.fileName}}"></script>
+            {{/if}}
+        {{/each}}
+    </body>
+</html>
