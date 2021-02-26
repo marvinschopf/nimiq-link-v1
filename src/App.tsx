@@ -35,8 +35,8 @@ export default class App extends Component<AppProps, AppState> {
 						</div>
 						<div className="nq-card-body">
 							<form onSubmit={this.handleSubmit}>
-								<div className="grid50">
-									<div className="grid50-element">
+								<div className="row">
+									<div className="col-xs-12 col-md-6">
 										<label for="targetUrlInput">
 											URL to shorten:
 										</label>
@@ -53,7 +53,7 @@ export default class App extends Component<AppProps, AppState> {
 											}}
 										/>
 									</div>
-									<div className="grid50-element">
+									<div className="col-xs-12 col-md-6">
 										<label for="walletInput">
 											NIM wallet address:
 										</label>

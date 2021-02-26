@@ -19,16 +19,3 @@ main {
 	width: 100%;
 	max-width: 250rem;
 }
-
-.grid50 {
-	width: 100%;
-}
-
-.grid50-element {
-	width: 50%;
-	width: 50%;
-}
-
-.grid50-element input {
-	width: 100%;
-}
