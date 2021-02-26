@@ -1,11 +1,11 @@
 header {
-    text-align: center;
-    padding: 5rem 0 7rem;
-    margin-bottom: 5rem;
+	text-align: center;
+	padding: 5rem 0 7rem;
+	margin-bottom: 5rem;
 }
 
 main {
-    width: 100%;
-    max-width: 900px;
-    margin: auto;
+	width: 100%;
+	max-width: 900px;
+	margin: auto;
 }
