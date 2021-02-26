@@ -11,14 +11,14 @@ export default class App extends Component {
 						URL shortener with NIMIQ integration
 					</p>
 				</header>
-				<div className="content">
+				<main>
 					<div className="nq-card">
 						<div className="nq-card-header">
 							<h1 className="nq-h1">Create shortlink</h1>
 						</div>
 						<div className="nq-card-body"></div>
 					</div>
-				</div>
+				</main>
 			</Fragment>
 		)
 	}
