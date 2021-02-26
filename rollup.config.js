@@ -3,6 +3,7 @@ import typescript from "@rollup/plugin-typescript"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
 import html from "@rollup/plugin-html"
 import copy from "rollup-plugin-copy-assets"
+import sizes from "rollup-plugin-sizes"
 import Handlebars from "handlebars"
 
 import { readFileSync } from "fs"
@@ -45,5 +46,6 @@ module.exports = {
 		copy({
 			assets: ["src/assets/", "assets/", "src/css/"],
 		}),
+		sizes(),
 	],
 }
