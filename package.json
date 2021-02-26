@@ -30,6 +30,7 @@
 		"semi": false
 	},
 	"dependencies": {
+		"@nimiq/core-web": "1.5.8",
 		"preact": "10.5.12"
 	}
 }
