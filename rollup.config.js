@@ -43,7 +43,7 @@ module.exports = {
 			},
 		}),
 		copy({
-			assets: ["src/assets/", "assets/"],
+			assets: ["src/assets/", "assets/", "src/css/"],
 		}),
 	],
 }
