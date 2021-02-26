@@ -15,6 +15,8 @@ __metadata:
 "nimiq-link-frontend@workspace:frontend":
   version: 0.0.0-use.local
   resolution: "nimiq-link-frontend@workspace:frontend"
+  dependencies:
+    preact: ^10.5.12
   languageName: unknown
   linkType: soft
 
@@ -27,6 +29,13 @@ __metadata:
     typescript: 3.9.9
   languageName: unknown
   linkType: soft
+
+"preact@npm:^10.5.12":
+  version: 10.5.12
+  resolution: "preact@npm:10.5.12"
+  checksum: 38c5ae61ae0a343525e6a62dfcdde8055864f79c274157115dff2f62c2577490efce91d90f3952f1365020cc1e3d4b8e9d824d63644354f5fcef3b1e1ed5a653
+  languageName: node
+  linkType: hard
 
 "prettier@npm:^2.2.1":
   version: 2.2.1

@@ -1,3 +1,6 @@
 {
-	"name": "nimiq-link-frontend"
+	"name": "nimiq-link-frontend",
+	"dependencies": {
+		"preact": "^10.5.12"
+	}
 }
