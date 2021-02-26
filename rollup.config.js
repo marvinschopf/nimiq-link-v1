@@ -4,6 +4,7 @@ import { nodeResolve } from "@rollup/plugin-node-resolve"
 import html from "@rollup/plugin-html"
 import copy from "rollup-plugin-copy-assets"
 import sizes from "rollup-plugin-sizes"
+import { terser } from "rollup-plugin-terser"
 import Handlebars from "handlebars"
 
 import { readFileSync } from "fs"
@@ -28,6 +29,7 @@ module.exports = {
 				{ find: "react-dom", replacement: "preact/compat" },
 			],
 		}),
+		terser(),
 		html({
 			fileName: "index.html",
 			template: ({ attributes, bundle, files, publicPath, title }) => {
