@@ -1,6 +1,13 @@
 import { NowRequest, NowResponse } from "@vercel/node"
+import faunadb from "faunadb"
 
-export default (_req: NowRequest, res: NowResponse) => {
+const q: any = faunadb.Query
+
+const client: faunadb.Client = new faunadb.Client({
+	secret: process.env.FAUNA_SECRET,
+})
+
+export default async (_req: NowRequest, res: NowResponse) => {
 	let target: string = ""
 	let wallet: string = ""
 	let shares: number = 1
@@ -12,11 +19,35 @@ export default (_req: NowRequest, res: NowResponse) => {
 	if (_req.body && _req.body.wallet) wallet = _req.body.wallet
 	if (_req.body && _req.body.shares) shares = _req.body.shares
 	if (target.length >= 1 && wallet.length >= 1 && shares > 0) {
-		res.status(200).json({ target, wallet, shares })
+		const slug = makeSlug(3)
+		var createP = client.query(
+			q.Create(q.Ref(q.Collection("links"), slug), {
+				data: {
+					slug: slug,
+					target: target,
+					wallet: wallet,
+					shares: shares,
+				},
+			})
+		)
+		await createP
+		res.status(200).json({ slug, target, wallet, shares })
 	} else {
 		res.status(422).json({
 			success: false,
 			error: "PARAMETER_MISSING",
 		})
 	}
+}
+
+function makeSlug(length: number): string {
+	let result: string = ""
+	const characters: string = "abcdefghiklmnpqrstuvwxyz23456789"
+	const charactersLength: number = characters.length
+	for (let i: number = 0; i < length; i++) {
+		result += characters.charAt(
+			Math.floor(Math.random() * charactersLength)
+		)
+	}
+	return result
 }
