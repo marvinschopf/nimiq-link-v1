@@ -21,29 +21,6 @@ export default class App extends Component<AppProps, AppState> {
 		}
 	}
 
-	handleSubmit(event: Event) {
-		this.setState({
-			isLoading: true,
-		})
-		fetch("/api/create", {
-			method: "POST",
-			body: JSON.stringify({
-				target: this.state.targetUrl,
-				wallet: this.state.wallet,
-				shares: this.state.shares,
-			}),
-		})
-			.then((response) => {
-				return response.json()
-			})
-			.then((json) => {
-				this.setState({
-					isLoading: false,
-				})
-				console.log(json)
-			})
-	}
-
 	render() {
 		return (
 			<Fragment>
@@ -59,7 +36,31 @@ export default class App extends Component<AppProps, AppState> {
 							<h1 className="nq-h1">Create shortlink</h1>
 						</div>
 						<div className="nq-card-body">
-							<form onSubmit={this.handleSubmit}>
+							<form
+								id="createForm"
+								onSubmit={() => {
+									this.setState({
+										isLoading: true,
+									})
+									fetch("/api/create", {
+										method: "POST",
+										body: JSON.stringify({
+											target: this.state.targetUrl,
+											wallet: this.state.wallet,
+											shares: this.state.shares,
+										}),
+									})
+										.then((response) => {
+											return response.json()
+										})
+										.then((json) => {
+											this.setState({
+												isLoading: false,
+											})
+											console.log(json)
+										})
+								}}
+							>
 								<div className="row">
 									<div className="col-xs-12 col-md-6">
 										<label for="targetUrlInput">
@@ -103,6 +104,7 @@ export default class App extends Component<AppProps, AppState> {
 								<button
 									type="submit"
 									className="nq-button light-blue"
+									form="createForm"
 									style={{
 										margin: "0 auto",
 										width: "100%",
