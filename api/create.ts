@@ -25,7 +25,7 @@ export default async (_req: NowRequest, res: NowResponse) => {
 	if (target.length >= 1 && wallet.length >= 1 && shares > 0) {
 		const slug = makeSlug(DEFAULT_SLUG_LENGTH)
 		var createP = client.query(
-			q.Create(q.Ref(q.Collection("links"), slug), {
+			q.Create(q.Collection("links"), {
 				data: {
 					slug: slug,
 					target: target,
