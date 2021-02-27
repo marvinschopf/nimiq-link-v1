@@ -38,7 +38,8 @@ export default class App extends Component<AppProps, AppState> {
 						<div className="nq-card-body">
 							<form
 								id="createForm"
-								onSubmit={async () => {
+								onSubmit={async (event: Event) => {
+									event.preventDefault()
 									this.setState({
 										isLoading: true,
 									})
@@ -56,8 +57,8 @@ export default class App extends Component<AppProps, AppState> {
 									const json = await response.json()
 									console.log(json)
 									this.setState({
-										isLoading: false
-									});
+										isLoading: false,
+									})
 								}}
 							>
 								<div className="row">
