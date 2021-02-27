@@ -38,27 +38,26 @@ export default class App extends Component<AppProps, AppState> {
 						<div className="nq-card-body">
 							<form
 								id="createForm"
-								onSubmit={() => {
+								onSubmit={async () => {
 									this.setState({
 										isLoading: true,
 									})
-									fetch("/api/create", {
-										method: "POST",
-										body: JSON.stringify({
-											target: this.state.targetUrl,
-											wallet: this.state.wallet,
-											shares: this.state.shares,
-										}),
-									})
-										.then((response) => {
-											return response.json()
-										})
-										.then((json) => {
-											this.setState({
-												isLoading: false,
-											})
-											console.log(json)
-										})
+									const response = await fetch(
+										"/api/create",
+										{
+											method: "POST",
+											body: JSON.stringify({
+												target: this.state.targetUrl,
+												wallet: this.state.wallet,
+												shares: this.state.shares,
+											}),
+										}
+									)
+									const json = await response.json()
+									console.log(json)
+									this.setState({
+										isLoading: false
+									});
 								}}
 							>
 								<div className="row">
