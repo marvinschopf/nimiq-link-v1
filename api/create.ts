@@ -1,7 +1,7 @@
 import { NowRequest, NowResponse } from "@vercel/node"
 import faunadb from "faunadb"
 
-const q: any = faunadb.Query
+const q: typeof faunadb.query = faunadb.query
 
 const DEFAULT_SLUG_LENGTH: number = 3
 
