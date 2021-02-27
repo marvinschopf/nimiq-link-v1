@@ -6,6 +6,7 @@ type AppProps = {}
 type AppState = {
 	targetUrl: string
 	wallet: string
+	shares: number
 	isLoading: boolean
 }
 
@@ -15,11 +16,33 @@ export default class App extends Component<AppProps, AppState> {
 		this.state = {
 			targetUrl: "",
 			wallet: "",
+			shares: 1,
 			isLoading: false,
 		}
 	}
 
-	handleSubmit(event: Event) {}
+	handleSubmit(event: Event) {
+		this.setState({
+			isLoading: true,
+		})
+		fetch("/api/create", {
+			method: "POST",
+			body: JSON.stringify({
+				target: this.state.targetUrl,
+				wallet: this.state.wallet,
+				shares: this.state.shares,
+			}),
+		})
+			.then((response) => {
+				return response.json()
+			})
+			.then((json) => {
+				this.setState({
+					isLoading: false,
+				})
+				console.log(json)
+			})
+	}
 
 	render() {
 		return (
@@ -77,16 +100,27 @@ export default class App extends Component<AppProps, AppState> {
 									</div>
 								</div>
 								<br />
-								<input
+								<button
 									type="submit"
 									className="nq-button light-blue"
-									value="Create now"
 									style={{
 										margin: "0 auto",
 										width: "100%",
 										maxWidth: "300px",
 									}}
-								/>
+								>
+									{this.state.isLoading && (
+										<div className="sk-chase">
+											<div className="sk-chase-dot"></div>
+											<div className="sk-chase-dot"></div>
+											<div className="sk-chase-dot"></div>
+											<div className="sk-chase-dot"></div>
+											<div className="sk-chase-dot"></div>
+											<div className="sk-chase-dot"></div>
+										</div>
+									)}
+									Create now
+								</button>
 							</form>
 						</div>
 					</div>
