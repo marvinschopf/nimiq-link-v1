@@ -3,8 +3,12 @@ import faunadb from "faunadb"
 
 const q: any = faunadb.Query
 
+const DEFAULT_SLUG_LENGTH: number = 3
+
+const FAUNA_SECRET: string = process.env.FAUNA_SECRET || ""
+
 const client: faunadb.Client = new faunadb.Client({
-	secret: process.env.FAUNA_SECRET,
+	secret: FAUNA_SECRET,
 })
 
 export default async (_req: NowRequest, res: NowResponse) => {
@@ -19,7 +23,7 @@ export default async (_req: NowRequest, res: NowResponse) => {
 	if (_req.body && _req.body.wallet) wallet = _req.body.wallet
 	if (_req.body && _req.body.shares) shares = _req.body.shares
 	if (target.length >= 1 && wallet.length >= 1 && shares > 0) {
-		const slug = makeSlug(3)
+		const slug = makeSlug(DEFAULT_SLUG_LENGTH)
 		var createP = client.query(
 			q.Create(q.Ref(q.Collection("links"), slug), {
 				data: {
