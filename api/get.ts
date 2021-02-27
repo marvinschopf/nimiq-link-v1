@@ -16,10 +16,25 @@ export default async (_req: NowRequest, res: NowResponse) => {
 	if (_req.query && _req.query.slug) slug = _req.query.slug.toString()
 	if (_req.body && _req.body.slug) slug = _req.body.slug
 	if (slug.length >= 1) {
-		const response: object = await client.query(
+		const response: any = await client.query(
 			q.Get(q.Match(q.Index("links_by_slug"), slug))
 		)
-		res.status(200).json(response)
+		if (response && response.data) {
+			const data: any = response.data
+			if (data.target && data.wallet && data.shares && data.slug) {
+				res.status(200).json({
+					slug: data.slug,
+					target: data.target,
+					wallet: data.wallet,
+					shares: parseInt(data.shares.toString()),
+				})
+			} else {
+				res.status(404).json({
+					success: false,
+					error: "NOT_FOUND",
+				})
+			}
+		}
 	} else {
 		res.status(422).json({
 			success: false,
