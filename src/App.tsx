@@ -52,6 +52,10 @@ export default class App extends Component<AppProps, AppState> {
 												wallet: this.state.wallet,
 												shares: this.state.shares,
 											}),
+											headers: {
+												"Content-Type":
+													"application/json;charset=UTF-8",
+											},
 										}
 									)
 									const json = await response.json()
