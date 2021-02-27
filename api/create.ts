@@ -21,7 +21,7 @@ export default async (_req: NowRequest, res: NowResponse) => {
 		shares = parseInt(_req.query.shares.toString())
 	if (_req.body && _req.body.target) target = _req.body.target
 	if (_req.body && _req.body.wallet) wallet = _req.body.wallet
-	if (_req.body && _req.body.shares) shares = _req.body.shares
+	if (_req.body && _req.body.shares) shares = parseInt(_req.body.shares)
 	if (target.length >= 1 && wallet.length >= 1 && shares > 0) {
 		const slug = makeSlug(DEFAULT_SLUG_LENGTH)
 		var createP = client.query(
