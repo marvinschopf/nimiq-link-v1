@@ -76,13 +76,14 @@ export default class App extends Component<AppProps, AppState> {
 										/>
 									</div>
 								</div>
+								<br />
 								<input
 									type="submit"
 									className="nq-button light-blue"
 									value="Create now"
 									style={{
 										margin: "0 auto",
-										width: "50%",
+										width: "100%",
 										maxWidth: "300px",
 									}}
 								/>
