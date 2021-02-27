@@ -9,8 +9,9 @@
 	},
 	"funding": "https://sponsor.marvinschopf.com/nimiq-link",
 	"scripts": {
-		"prettier": "prettier --write **/* *",
-		"build": "yarn rollup --config"
+		"prettier": "prettier --write **/* * **/**/*",
+		"build": "yarn rollup --config",
+		"test:lint": "prettier --check **/* * **/**/*"
 	},
 	"devDependencies": {
 		"@rollup/plugin-alias": "^3.1.2",
