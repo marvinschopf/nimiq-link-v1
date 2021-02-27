@@ -6,6 +6,7 @@ type AppProps = {}
 type AppState = {
 	targetUrl: string
 	wallet: string
+	isLoading: boolean
 }
 
 export default class App extends Component<AppProps, AppState> {
@@ -14,6 +15,7 @@ export default class App extends Component<AppProps, AppState> {
 		this.state = {
 			targetUrl: "",
 			wallet: "",
+			isLoading: false,
 		}
 	}
 
@@ -74,6 +76,16 @@ export default class App extends Component<AppProps, AppState> {
 										/>
 									</div>
 								</div>
+								<input
+									type="submit"
+									className="nq-button light-blue"
+									value="Create now"
+									style={{
+										margin: "0 auto",
+										width: "50%",
+										maxWidth: "300px",
+									}}
+								/>
 							</form>
 						</div>
 					</div>
