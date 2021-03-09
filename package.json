@@ -19,7 +19,7 @@
 		"@rollup/plugin-node-resolve": "^11.2.0",
 		"@rollup/plugin-typescript": "^8.2.0",
 		"@types/node": "^14.14.31",
-		"@vercel/node": "^1.9.0",
+		"@vercel/node": "^1.9.1",
 		"handlebars": "^4.7.7",
 		"prettier": "^2.2.1",
 		"rollup": "^2.40.0",
