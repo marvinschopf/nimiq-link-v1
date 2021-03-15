@@ -37,6 +37,6 @@
 	"dependencies": {
 		"@nimiq/core-web": "1.5.8",
 		"faunadb": "4.1.1",
-		"preact": "10.5.12"
+		"preact": "10.5.13"
 	}
 }
